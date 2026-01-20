@@ -1,5 +1,6 @@
 @import "tailwindcss";
 
+/*
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -19,8 +20,69 @@
   }
 }
 
+*/ 
+
+
+
+@theme {
+    --font-hack: "Hack, monospaced"
+}
+
+@theme {
+    --font-source-code: "SourceCode, monospaced"
+}
+
+:root {
+    --background: var(--color-black);
+    --foreground: var(--color-gray-300);
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* No seu index.css */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #11111b; /* A cor mais escura do seu fundo */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #45475a; /* Um cinza médio */
+  border-radius: 5px;
+  border: 2px solid #11111b; /* Cria um respiro nas bordas */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #585b70; /* Um pouco mais claro no hover */
+}
+
+::selection {
+  background-color: #a855f7; /* Seu Roxo (purple-500) */
+  color: #ffffff;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px); /* Dá um efeito legal de subida */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Opcional: Se quiser usar como classe utilitária */
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
 }

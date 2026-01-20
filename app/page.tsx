@@ -1,65 +1,70 @@
-import Image from "next/image";
+import { Reveal } from "./components/Reveal";
+import TechStack from "./components/TechStack";
+import Timeline from "./components/Timeline";
+import Navbar from "./components/navbar";
+import ContactSection from './components/contactSection';
+import InfoBlock from "./components/infoBlock";
 
 export default function Home() {
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+    <>
+      <Navbar />
+      
+      <div className="min-h-screen pt-24 md:pt-32 w-full px-6 md:px-0 md:max-w-4xl mx-auto pb-20">
+
+        <Reveal>
+          <header className="font-source-code text-3xl md:text-4xl font-bold mb-6 md:mb-10 text-white" id="about">
+            SOBRE
+          </header>
+        </Reveal>
+
+        <Reveal delay={200}>
+          <section className="flex flex-col gap-4 text-gray-300">
+            <p className="font-hack w-full leading-relaxed text-base md:text-lg">
+                Olá! Obrigado pela visita ao meu portfólio.
+                Me chamo Kayky Gibran e sou estudante de Ciência da Computação na Unicamp. Sou um desenvolvedor backend apaixonado pela intersecção entre engenharia de software e pesquisa acadêmica.
+            </p>
+            <p className="font-hack w-full leading-relaxed text-base md:text-lg">
+                Atualmente, realizo um estudo dirigido em Otimização de Problemas em Grafos no Instituto de Computação da Unicamp, buscando unir teoria robusta à prática.
+            </p>
+          </section>
+        </Reveal>
+
+
+        <Reveal>
+          <header className="font-source-code text-3xl md:text-4xl font-bold mt-12 md:mt-20 mb-10 md:mb-20 text-white">
+            TECH STACK
+          </header>
+        </Reveal>
+
+        <TechStack />
+
+        <header className="font-source-code text-3xl md:text-4xl font-bold mt-16 md:mt-20 mb-8 md:mb-10 text-white">
+            TIMELINE
+        </header>
+        
+        <section className="w-full">
+            <Timeline />
+        </section>
+
+        <header className="font-source-code text-3xl md:text-4xl font-bold mt-16 md:mt-20 mb-8 md:mb-10 text-white">
+            IDIOMAS
+        </header>
+
+        <section className="flex flex-col gap-6 md:flex-row md:gap-8 w-full">
+          <InfoBlock label="Português" value="Nativo" />
+          <InfoBlock label="Inglês" value="Avançado" />
+          <InfoBlock label="Alemão" value="Básico" />
+        </section>
+
+        <header className="font-source-code text-3xl md:text-4xl font-bold mt-16 md:mt-20 mb-8 md:mb-10 text-white" id="contacts">
+            VAMOS CONVERSAR?
+        </header>
+
+        <ContactSection />
+
+      </div>
+    </>
   );
 }
