@@ -1,5 +1,5 @@
 import IconMail from "./IconMail";
-import personalInfo from "../personalIfno";
+import personalInfo from "../personalInfo";
 
 export default function Footer() {
     return (

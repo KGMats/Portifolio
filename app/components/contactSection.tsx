@@ -3,7 +3,7 @@
 import { ReactNode } from 'react';
 import { useState } from 'react';
 import IconMail from './IconMail';
-import personalInfo from '../personalIfno';
+import personalInfo from '../personalInfo';
 
 type ContactCardProps = {
   icon: ReactNode;
