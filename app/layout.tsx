@@ -39,13 +39,14 @@ export const metadata: Metadata = {
     title: 'KGMats | Developer Portfolio',
     description: 'Backend developer and Systems Engineer with experience in Low-level programming, IoT and Web development projects.',
     siteName: 'KGMats Portfolio',
+    images: ['/og-image.png']
   },
 
   twitter: {
     card: 'summary_large_image',
     title: 'KGMats | Developer Portfolio',
     description: 'Backend developer and Systems Engineer with experience in Low-level programming, IoT and Web development projects.',
-    images: ['/og-image.jpg'],
+    images: ['/og-image.png'],
   },
   
   icons: {
