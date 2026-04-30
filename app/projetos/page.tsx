@@ -22,29 +22,31 @@ export default function Projetos() {
 
         <Reveal delay={100}>
           <FeaturedProject
-            category={p.taskManagerCategory}
-            title={p.taskManagerTitle}
-            description={p.taskManagerDesc}
-            features={p.taskManagerFeatures}
-            videoSrc="/taskmanager_demo1.mp4"
-            githubLink="https://github.com/KGMats/TaskManager"
+            category={p.ptd2Category}
+            title={p.ptd2Title}
+            description={p.ptd2Desc}
+            features={p.ptd2Features}
+            imageSrc="/projects/ptd2-hero.png"
+            githubLink="https://github.com/KGMats/PTD2-Server/"
             viewLabel={p.viewImpl}
           />
         </Reveal>
 
         <Reveal delay={300}>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 mt-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
 
             <ProjectCard
-              title={p.ptd2Title}
-              description={p.ptd2Desc}
-              githubLink="https://github.com/KGMats/PTD2-Server/"
+              title={p.taskManagerTitle}
+              description={p.taskManagerDesc}
+              imageSrc="/projects/taskmanager.png"
+              githubLink="https://github.com/KGMats/TaskManager"
               viewLabel={p.viewImpl}
             />
 
             <ProjectCard
               title={p.graphTitle}
               description={p.graphDesc}
+              imageSrc="/projects/graph.png"
               githubLink="https://github.com/KGMats/Graphs"
               viewLabel={p.viewImpl}
             />
@@ -52,6 +54,7 @@ export default function Projetos() {
             <ProjectCard
               title={p.compactTitle}
               description={p.compactDesc}
+              imageSrc="/projects/compact.png"
               githubLink="https://github.com/Yanneti2/Estruturas-de-dados-Compactas"
               viewLabel={p.viewImpl}
             />
@@ -59,6 +62,7 @@ export default function Projetos() {
             <ProjectCard
               title={p.wordleTitle}
               description={p.wordleDesc}
+              imageSrc="/projects/wordle.png"
               githubLink="https://github.com/KGMats/WordleAI"
               viewLabel={p.viewImpl}
             />

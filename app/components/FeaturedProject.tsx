@@ -1,15 +1,18 @@
+import Image from "next/image";
+
 interface FeaturedProjectProps {
   category: string;
   title: string;
   description: string;
   features: string[];
-  videoSrc: string;
+  videoSrc?: string;
+  imageSrc?: string;
   githubLink?: string;
   viewLabel?: string;
 }
 
 export const FeaturedProject = ({
-  category, title, description, features, videoSrc, githubLink, viewLabel = "Ver implementação"
+  category, title, description, features, videoSrc, imageSrc, githubLink, viewLabel = "Ver implementação"
 }: FeaturedProjectProps) => {
   return (
     <div className="relative w-full max-w-7xl mx-auto h-auto md:h-[500px] bg-[#121214] rounded-[2.5rem] border border-white/5 flex flex-col md:flex-row overflow-hidden">
@@ -27,7 +30,7 @@ export const FeaturedProject = ({
             </li>
           ))}
         </ul>
-        <a
+        
           className="bg-purple-600 hover:bg-purple-500 text-white w-fit px-6 py-2.5 rounded-lg font-bold text-sm transition-all duration-200 shadow-lg shadow-purple-900/20"
           href={githubLink ?? ""}
           target="_blank"
@@ -37,8 +40,12 @@ export const FeaturedProject = ({
         </a>
       </div>
       <div className="w-full h-64 md:h-full md:w-[60%] border-l border-white/5 md:transform md:-skew-x-6 md:origin-bottom-right overflow-hidden shadow-[-40px_0_60px_-15px_rgba(0,0,0,0.6)] order-1 md:order-2">
-        <div className="w-full h-full md:-ml-3">
-          <video className="w-full h-full object-cover opacity-90" src={videoSrc} autoPlay muted loop playsInline />
+        <div className="w-full h-full md:-ml-3 relative">
+          {videoSrc ? (
+            <video className="w-full h-full object-cover opacity-90" src={videoSrc} autoPlay muted loop playsInline />
+          ) : imageSrc ? (
+            <Image src={imageSrc} alt={title} fill className="object-cover opacity-90" sizes="60vw" />
+          ) : null}
         </div>
       </div>
     </div>
