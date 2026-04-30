@@ -4,22 +4,17 @@ import localFont from "next/font/local";
 import "./globals.css";
 import 'devicon/devicon.min.css';
 import Footer from "./components/footer";
-
+import { LanguageProvider } from "./context/LanguageContext";
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://kgmats.cc'),
-  
   title: {
-    default: 'KGMats | Graphics & Systems Programming Portfolio',
+    default: 'KGMats | Backend Developer Portfolio',
     template: '%s | KGMats'
   },
-  
-  description: 'Portfolio of KGMats. Backend developer and Systems Engineer specializing in low-level programming and high-performance computing.',
-  
-  keywords: ['C++', 'Software Developer', 'Graphics Programming', 'OpenGL', 'Python', 'KGMats', 'Systems Programming', 'Gibran', 'Kayky Gibran'],
-  
+  description: 'Portfolio of Kayky Gibran (KGMats). Backend developer specializing in reverse engineering, high-performance computing and systems programming.',
+  keywords: ['C', 'PHP', 'Python', 'Docker', 'Backend Developer', 'Reverse Engineering', 'KGMats', 'Kayky Gibran'],
   authors: [{ name: 'KGMats' }],
-  
   robots: {
     index: true,
     follow: true,
@@ -31,93 +26,50 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
-
   openGraph: {
     type: 'website',
-    locale: 'en_US',
+    locale: 'pt_BR',
     url: 'https://kgmats.cc',
     title: 'KGMats | Developer Portfolio',
-    description: 'Backend developer and Systems Engineer with experience in Low-level programming, IoT and Web development projects.',
+    description: 'Backend developer with experience in reverse engineering, systems programming and high-performance computing.',
     siteName: 'KGMats Portfolio',
     images: ['/og-image.png']
   },
-
   twitter: {
     card: 'summary_large_image',
     title: 'KGMats | Developer Portfolio',
-    description: 'Backend developer and Systems Engineer with experience in Low-level programming, IoT and Web development projects.',
+    description: 'Backend developer with experience in reverse engineering, systems programming and high-performance computing.',
     images: ['/og-image.png'],
   },
-  
   icons: {
     icon: '/favicon.svg',
     shortcut: '/favicon-16x16.png',
     apple: '/apple-touch-icon.png',
   },
-}
+};
 
-
-
-// Fontes
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
-
-const sourceCode = Source_Code_Pro({
-    variable: "--font-source-code",
-    subsets: ["latin"]
-});
-
+const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
+const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
+const sourceCode = Source_Code_Pro({ variable: "--font-source-code", subsets: ["latin"] });
 const hack = localFont({
   src: [
-    {
-      path: './fonts/Hack/Hack-Regular.ttf',
-      weight: '400',
-      style: 'normal',
-    },
-    {
-      path: './fonts/Hack/Hack-Bold.ttf',
-      weight: '700',
-      style: 'normal',
-    },
-    {
-      path: './fonts/Hack/Hack-Italic.ttf',
-      weight: '400',
-      style: 'italic',
-    },
-    {
-      path: './fonts/Hack/Hack-BoldItalic.ttf',
-      weight: '700',
-      style: 'italic',
-    },
+    { path: './fonts/Hack/Hack-Regular.ttf', weight: '400', style: 'normal' },
+    { path: './fonts/Hack/Hack-Bold.ttf', weight: '700', style: 'normal' },
+    { path: './fonts/Hack/Hack-Italic.ttf', weight: '400', style: 'italic' },
+    { path: './fonts/Hack/Hack-BoldItalic.ttf', weight: '700', style: 'italic' },
   ],
-  variable: '--font-hack', // Defines the CSS variable
+  variable: '--font-hack',
   display: 'swap',
 });
 
-
-
-// Layout geral
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} ${hack.variable} ${sourceCode.variable}`}
-      >
-        {children}
-      <Footer></Footer>
+    <html lang="pt-BR">
+      <body className={`${geistSans.variable} ${geistMono.variable} ${hack.variable} ${sourceCode.variable}`}>
+        <LanguageProvider>
+          {children}
+          <Footer />
+        </LanguageProvider>
       </body>
     </html>
   );
