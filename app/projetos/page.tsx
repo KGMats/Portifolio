@@ -63,7 +63,7 @@ export default function Projetos() {
               title={p.wordleTitle}
               description={p.wordleDesc}
               imageSrc="/projects/wordle.png"
-              githubLink="https://github.com/KGMats/WordleAI"
+              githubLink="https://github.com/KGMats/Wordle"
               viewLabel={p.viewImpl}
             />
 

@@ -8,7 +8,7 @@ export default function Footer() {
             {/* Text Section */}
             <div className="flex flex-col items-center text-center space-y-2 mb-6">
                 <span className="font-hack text-gray-400 text-sm md:text-base">
-                    © 2025 Kayky Matos. All rights reserved.
+                    © 2026 Kayky Matos. All rights reserved.
                 </span>
                 <span className="font-hack text-gray-500 text-xs md:text-sm">
                     Made with <span className="text-purple-400">coffee</span> & <span className="text-purple-400">code</span> by kgmats.cc
