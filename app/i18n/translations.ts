@@ -67,7 +67,7 @@ export const translations = {
             viewImpl: 'Ver implementação',
             ptd2Category: 'Engenharia Reversa & Backend',
             ptd2Title: 'PTD2 Server',
-            ptd2Desc: 'Servidor backend multiplayer para Pokémon Tower Defense 2, reconstruído por completo via engenharia reversa. Com o servidor original offline permanentemente, descompilei o client Flash e analisei bytecode ActionScript para decifrar o protocolo ofuscado do zero.',
+            ptd2Desc: 'Servidor backend multiplayer para Pokémon Tower Defense 2, reconstruído por do zero via engenharia reversa. Descompilei o client Flash e analisei bytecode ActionScript para decifrar o protocolo ofuscado do zero.',
             ptd2Features: [
                 '+160 mil usuários registrados em produção',
                 'Engenharia reversa de bytecode ActionScript (Flash)',

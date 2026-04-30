@@ -31,6 +31,7 @@ export const FeaturedProject = ({
           ))}
         </ul>
         
+        <a
           className="bg-purple-600 hover:bg-purple-500 text-white w-fit px-6 py-2.5 rounded-lg font-bold text-sm transition-all duration-200 shadow-lg shadow-purple-900/20"
           href={githubLink ?? ""}
           target="_blank"
