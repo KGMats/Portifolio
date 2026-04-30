@@ -165,7 +165,7 @@ export const translations = {
             viewImpl: 'View implementation',
             ptd2Category: 'Reverse Engineering & Backend',
             ptd2Title: 'PTD2 Server',
-            ptd2Desc: 'A multiplayer backend server for Pokémon Tower Defense 2, fully reconstructed through reverse engineering. With the original server permanently offline, I decompiled the Flash client and analyzed ActionScript bytecode to decode the obfuscated protocol from scratch.',
+            ptd2Desc: 'A multiplayer backend server for Pokémon Tower Defense 2, created using reverse engineering to decode and reimplement the game protocol.',
             ptd2Features: [
                 '160,000+ registered users in production',
                 'Reverse engineering of ActionScript bytecode (Flash)',

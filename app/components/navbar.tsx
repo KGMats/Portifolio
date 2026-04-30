@@ -2,10 +2,16 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import { useLang } from '../context/LanguageContext';
+import { useSearchParams } from 'next/navigation';
+import Link from 'next/link';
+
+
 
 export default function Navbar({ className = "", ...props }: React.HTMLProps<HTMLElement>) {
     const [isOpen, setIsOpen] = useState(false);
     const { lang, setLang, t } = useLang();
+    const searchParams = useSearchParams();
+    const langParam = `?lang=${lang}`;
 
     const toggleMenu = () => setIsOpen(!isOpen);
     const closeMenu = () => setIsOpen(false);
@@ -26,9 +32,9 @@ export default function Navbar({ className = "", ...props }: React.HTMLProps<HTM
                 {/* Desktop */}
                 <div className="hidden md:flex flex-row items-center gap-8">
                     <div className="flex flex-row gap-6">
-                        <NavLink href="/#about">{t.nav.about}</NavLink>
-                        <NavLink href="/#contacts">{t.nav.contacts}</NavLink>
-                        <NavLink href="/projetos">{t.nav.projects}</NavLink>
+                        <Link href={`/${langParam}#about`}>{t.nav.about}</Link>
+                        <Link href={`/${langParam}#contacts`}>{t.nav.contacts}</Link>
+                        <Link href={`/projetos${langParam}`}>{t.nav.projects}</Link>
                     </div>
                     <div className="h-6 w-px bg-gray-700"></div>
                     <LangToggle lang={lang} setLang={setLang} />
@@ -91,23 +97,25 @@ function LangToggle({ lang, setLang }: { lang: 'pt' | 'en'; setLang: (l: 'pt' | 
     );
 }
 
+
 const NavLink = ({ href, children }: { href: string; children: React.ReactNode }) => (
-    <a href={href} className="text-gray-300 hover:text-white text-sm font-medium transition-colors relative group">
-        {children}
-        <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-purple-400 transition-all group-hover:w-full"></span>
-    </a>
+  <Link href={href} className="text-gray-300 hover:text-white text-sm font-medium transition-colors relative group">
+    {children}
+    <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-purple-400 transition-all group-hover:w-full"></span>
+  </Link>
 );
 
 const MobileNavLink = ({ href, onClick, children, delay }: { href: string; onClick: () => void; children: React.ReactNode; delay?: string }) => (
-    <a
-        href={href}
-        onClick={onClick}
-        style={{ transitionDelay: delay }}
-        className="text-gray-300 hover:text-white text-lg font-medium py-2 block w-full hover:bg-gray-800/50 transition-all duration-300"
-    >
-        {children}
-    </a>
+  <Link
+    href={href}
+    onClick={onClick}
+    style={{ transitionDelay: delay }}
+    className="text-gray-300 hover:text-white text-lg font-medium py-2 block w-full hover:bg-gray-800/50 transition-all duration-300"
+  >
+    {children}
+  </Link>
 );
+
 
 const DownloadButton = ({ label }: { label: string }) => (
     <a

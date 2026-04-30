@@ -5,6 +5,7 @@ import "./globals.css";
 import 'devicon/devicon.min.css';
 import Footer from "./components/footer";
 import { LanguageProvider } from "./context/LanguageContext";
+import {Suspense} from "react";
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://kgmats.cc'),
@@ -63,14 +64,30 @@ const hack = localFont({
 });
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return (
-    <html lang="pt-BR">
-      <body className={`${geistSans.variable} ${geistMono.variable} ${hack.variable} ${sourceCode.variable}`}>
-        <LanguageProvider>
-          {children}
-          <Footer />
-        </LanguageProvider>
-      </body>
-    </html>
-  );
+    return (
+        <html lang="pt-BR" suppressHydrationWarning>
+        <head>
+        </head>
+        <body className={`${geistSans.variable} ${geistMono.variable} ${hack.variable} ${sourceCode.variable}`}>
+          <script dangerouslySetInnerHTML={{ __html: `
+            (function() {
+              try {
+                var params = new URLSearchParams(window.location.search);
+                var lang = params.get('lang');
+                if (!lang) lang = localStorage.getItem('lang');
+                if (!lang) lang = navigator.language.startsWith('pt') ? 'pt' : 'en';
+                if (lang !== 'pt' && lang !== 'en') lang = 'en';
+                document.documentElement.setAttribute('data-lang', lang);
+              } catch(e) {}
+            })();
+          `}} />
+            <Suspense>
+                <LanguageProvider>
+                    {children}
+                    <Footer />
+                </LanguageProvider>
+            </Suspense>
+            </body>
+        </html>
+    );
 }
